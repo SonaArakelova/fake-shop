@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { clearCurrent, deleteProduct, fetchProductById } from '@/store/productSlice';
 import { useRouter } from 'next/navigation';
-import { Rating } from "@/components/Rating";
+//import { Rating } from "@/components/Rating"; 
 
 import Image from 'next/image';
 
@@ -65,9 +65,10 @@ export function ProductDetail({id}: {id:string}) {
           <div className="text-start mt-5 ">
           <p className="mb-2"> <span className="font-semibold"> Category: </span> {current.category}</p>
           <p className="mb-2 font-bold">Price: <span className="text-red-500">${current.price}</span></p>
-          <div className="mb-2">
+                    {/* error */}
+          {/* <div className="mb-2">
             Rating: <Rating rate={current.rating.rate} /> ({current.rating.count})
-          </div>
+          </div> */} 
           </div>
         </div>
       </div>
