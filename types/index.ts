@@ -12,6 +12,6 @@ export interface Product{
     description: string;
     category: string;
     image: string;
-    rating: Rating
+    rating?: Rating
 }
 

@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { fetchProducts } from "@/store/productSlice";
+import { useRouter } from 'next/navigation';
 import Link from "next/link";
 import Image from "next/image";
 
@@ -12,6 +13,7 @@ export  function Products() {
 
   const dispatch = useAppDispatch();
   const{list, status,error} = useAppSelector(state=> state.products);
+  const router = useRouter();
 
   useEffect(()=>{
     if (status ==='idle'){
@@ -26,8 +28,13 @@ export  function Products() {
 
 
   return (
-    <div className="container mx-auto p-6">
-    
+    <div className="container mx-auto p-6 flex justify-center flex-col ">
+      <button
+        onClick={() => router.push('/products/new')}
+        className="bg-indigo-500 text-white font-bold py-2 px-4 rounded hover:bg-indigo-600 transition-colors shadow-md "
+      >
+        Create New Product
+      </button>    
        <ul className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
         {list.map(p=> <li key ={p.id} className="flex flex-col justify-center items-center shadow-md p-4">
           <Link href={`/products/${p.id}`}>
