@@ -8,7 +8,6 @@ import Image from "next/image";
 
 import noimg from '@/public/noimg.png';
 
-
 export  function Products() {
 
   const dispatch = useAppDispatch();
